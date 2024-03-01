@@ -60,5 +60,6 @@ return {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       { desc = "Workspace Symbol Search" }
     )
+    keymap.set("n", "<leader>fd", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Workspace Symbol Search" })
   end,
 }
