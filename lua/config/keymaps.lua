@@ -10,3 +10,4 @@ vim.keymap.set("n", "<leader>bt", ":ToggleTerm direction=float <CR>", { desc = "
 vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=horizontal <CR>", { desc = "Open horizontal terminal split" })
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
+vim.keymap.set("n", "<leader>sr", ":GrugFar <CR>", { desc = "Search and Replace (grug-far)" })
