@@ -11,3 +11,4 @@ vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=horizontal <CR>", { des
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
 vim.keymap.set("n", "<leader>gtbl", ":Gitsigns toggle_current_line_blame <CR>", { desc = "Toggle Current Line Blame" })
+-- vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua lsp_workspace_symbols<cr>", { desc = "Workspace Symbol Search" })
