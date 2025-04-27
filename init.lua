@@ -4,39 +4,55 @@ require("config.lazy")
 local function get_python_path()
   -- Get the relative file path
   local file_path = vim.fn.expand("%:~:.")
+  local python_path = file_path:gsub("/", "."):gsub("%.py$", "")
 
-  -- Replace slashes with dots
-  local python_path = file_path:gsub("/", ".")
+  -- Get the cursor position
+  local cursor_row, _ = unpack(vim.api.nvim_win_get_cursor(0))
 
-  -- Remove the file extension
-  python_path = python_path:gsub("%.py$", "")
+  -- Get all lines before the cursor
+  local lines = vim.api.nvim_buf_get_lines(0, 0, cursor_row, false)
 
-  -- Check if the cursor is on a function or class definition
-  local line = vim.api.nvim_get_current_line()
+  -- Search backwards for the nearest function or class definition
+  local func_name, class_name = nil, nil
 
-  -- Match function definition
-  if line:match("^%s*def%s+%w+") then
-    local func_name = line:match("^%s*def%s+(%w+)")
+  for i = #lines, 1, -1 do
+    local line = lines[i]
+
+    -- Match function definition
+    local found_func = line:match("^%s*def%s+([%w_]+)")
+    if found_func then
+      func_name = found_func
+      break
+    end
+
+    -- Match class definition
+    local found_class = line:match("^%s*class%s+([%w_]+)")
+    if found_class then
+      class_name = found_class
+      -- Continue searching in case there's a function inside the class
+    end
+  end
+
+  -- Construct the final Python path
+  if func_name and class_name then
+    return python_path .. "." .. class_name .. "." .. func_name
+  elseif func_name then
     return python_path .. "." .. func_name
-
-  -- Match class definition
-  elseif line:match("^%s*class%s+%w+") then
-    local class_name = line:match("^%s*class%s+(%w+)")
+  elseif class_name then
     return python_path .. "." .. class_name
   else
-    -- Return the path without function or class if none is found
     return python_path
   end
 end
 
 local function copy_python_path()
   local python_path = get_python_path()
-  -- Copy the result to the clipboard
   vim.fn.setreg("+", python_path)
-  -- Notify the user
   vim.notify("Copied: " .. python_path, vim.log.levels.INFO)
 end
 
 vim.api.nvim_create_user_command("CopyPythonPath", function()
   copy_python_path()
 end, { desc = "Copy the Python module path with the current function/class to clipboard" })
+
+vim.opt.backspace = { "start", "eol", "indent" }

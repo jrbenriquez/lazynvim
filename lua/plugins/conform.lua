@@ -1,7 +1,7 @@
 return {
   "stevearc/conform.nvim",
   opts = {
-    format = {
+    default_format = {
       timeout_ms = 3000,
       async = false, -- not recommended to change
       quiet = false, -- not recommended to change
@@ -9,14 +9,15 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       -- Conform will run multiple formatters sequentially
-      python = { "ruff_format" },
-      html = { { "prettierd", "prettier" } },
-      json = { { "prettierd", "prettier" } },
-      htmldjango = { { "prettierd", "prettier" }, "djlint" },
+      python = { "isort", "ruff_format" },
+      sql = { "sql_formatter" } ,
+      html = { "prettierd", "prettier", stop_after_first = true },
+      json = { "prettierd", "prettier", stop_after_first = true  },
+      htmldjango = { "prettierd", "prettier", "djlint" },
       -- Use a sub-list to run only the first available formatter
-      javascript = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
-      typescriptreact = { { "prettierd", "prettier" } },
+      javascript = { "prettierd", "prettier", stop_after_first = true},
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
       xml = { "xmlformatter" },
     },
   },
