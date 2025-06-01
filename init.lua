@@ -61,6 +61,6 @@ local function get_dot_path()
   vim.notify("Copied: " .. full_path, vim.log.levels.INFO)
 end
 
-vim.api.nvim_create_user_command("TestDotPath", get_dot_path, {
-  desc = "Copy Django-compatible test dot path to clipboard",
+vim.api.nvim_create_user_command("DjangoDotPath", get_dot_path, {
+  desc = "Copy Django-relative dot path to clipboard",
 })
