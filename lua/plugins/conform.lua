@@ -13,7 +13,7 @@ return {
       sql = { "sql_formatter" } ,
       html = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettierd", "prettier", stop_after_first = true  },
-      htmldjango = { "prettierd", "prettier", "djlint" },
+      htmldjango = { "djlint", "prettierd", "prettier", stop_after_first= true },
       -- Use a sub-list to run only the first available formatter
       javascript = { "prettierd", "prettier", stop_after_first = true},
       typescript = { "prettierd", "prettier", stop_after_first = true },
