@@ -20,7 +20,7 @@ return {
       -- set keymaps
       local keymap = vim.keymap -- for conciseness
 
-      keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fuzzy find files in cwd" })
+      -- keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fuzzy find files in cwd" }) --
       keymap.set("n", "<leader>fw", "<cmd>FzfLua live_grep<cr>", { desc = "Find string in cwd" })
       keymap.set(
         "n",
