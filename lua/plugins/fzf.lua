@@ -15,22 +15,6 @@ return {
           },
         },
       })
-
-
-      -- set keymaps
-      local keymap = vim.keymap -- for conciseness
-
-      -- keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fuzzy find files in cwd" }) --
-      keymap.set("n", "<leader>fw", "<cmd>FzfLua live_grep<cr>", { desc = "Find string in cwd" })
-      keymap.set(
-        "n",
-        "<leader>fz",
-        "<cmd>FzfLua lsp_live_workspace_symbols<cr>",
-        { desc = "Workspace Symbol Search" }
-      )
-
-      keymap.set("n", "<leader>fs", "<cmd>FzfLua grep_project<cr>", { desc = "Find string under cursor in cwd" })
-      keymap.set("n", "<leader>fd", "<cmd>FzfLua lsp_document_symbols<cr>", { desc = "Document Symbol Search" })
-      end
-  }
+    end,
+  },
 }

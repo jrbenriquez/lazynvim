@@ -13,8 +13,23 @@ vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=horizontal <CR>", { des
 vim.keymap.set("n", "<leader>gtbl", ":Gitsigns toggle_current_line_blame <CR>", { desc = "Toggle Current Line Blame" })
 vim.keymap.set("n", "0", "^", { desc = "Go to the first non-blank character of a line" })
 vim.keymap.set("n", "^", "0", { desc = "Just in case you need to go to the very beginning of a line" })
-vim.keymap.set("n", "<leader>jsonf", ":%!python -m json.tool<CR>", { desc = "Format current buffer using Python's JSON formatter"})
+vim.keymap.set(
+  "n",
+  "<leader>jsonf",
+  ":%!python -m json.tool<CR>",
+  { desc = "Format current buffer using Python's JSON formatter" }
+)
 -- vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua lsp_workspace_symbols<cr>", { desc = "Workspace Symbol Search" })
 vim.keymap.set("n", "<leader>we", "<Plug>VimwikiToggleListItem", { desc = "Toggles VimWiki List Item" })
 
-vim.keymap.set("n", "<leader>fa", "<cmd>FzfLua tags<cr>", { desc = "Ctags Search" })
+-- FzfLua
+vim.keymap.set("n", "<leader>fa", "<cmd>FzfLua tags<cr>", { desc = "Ctags Search FzfLua" })
+vim.keymap.set("n", "<leader>fw", "<cmd>FzfLua live_grep<cr>", { desc = "Find string in cwd FzfLua" })
+vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { desc = "Workspace Symbol Search FzfLua" })
+vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua lsp_document_symbols<cr>", { desc = "Document Symbol Search FzfLua" })
+
+vim.keymap.set("n", "<leader>fx", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd Tele" })
+
+vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fuzzy find files in cwd FzfLua" }) --
+
+-- vim.keymap.set("n", "<leader>fs", "<cmd>FzfLua grep_project<cr>", { desc = "Find string under cursor in cwd" })
