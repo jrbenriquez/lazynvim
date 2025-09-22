@@ -15,3 +15,6 @@ vim.keymap.set("n", "0", "^", { desc = "Go to the first non-blank character of a
 vim.keymap.set("n", "^", "0", { desc = "Just in case you need to go to the very beginning of a line" })
 vim.keymap.set("n", "<leader>jsonf", ":%!python -m json.tool<CR>", { desc = "Format current buffer using Python's JSON formatter"})
 -- vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua lsp_workspace_symbols<cr>", { desc = "Workspace Symbol Search" })
+vim.keymap.set("n", "<leader>we", "<Plug>VimwikiToggleListItem", { desc = "Toggles VimWiki List Item" })
+
+vim.keymap.set("n", "<leader>fa", "<cmd>FzfLua tags<cr>", { desc = "Ctags Search" })
