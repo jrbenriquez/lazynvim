@@ -19,7 +19,6 @@ vim.keymap.set(
   ":%!python -m json.tool<CR>",
   { desc = "Format current buffer using Python's JSON formatter" }
 )
--- vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua lsp_workspace_symbols<cr>", { desc = "Workspace Symbol Search" })
 vim.keymap.set("n", "<leader>we", "<Plug>VimwikiToggleListItem", { desc = "Toggles VimWiki List Item" })
 
 -- FzfLua
@@ -27,9 +26,8 @@ vim.keymap.set("n", "<leader>fa", "<cmd>FzfLua tags<cr>", { desc = "Ctags Search
 vim.keymap.set("n", "<leader>fw", "<cmd>FzfLua live_grep<cr>", { desc = "Find string in cwd FzfLua" })
 vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { desc = "Workspace Symbol Search FzfLua" })
 vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua lsp_document_symbols<cr>", { desc = "Document Symbol Search FzfLua" })
-
-vim.keymap.set("n", "<leader>fx", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd Tele" })
-
 vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Fuzzy find files in cwd FzfLua" }) --
+vim.keymap.set("n", "<leader>fs", "<cmd>FzfLua grep_project<cr>", { desc = "Find string under cursor in cwd" })
 
--- vim.keymap.set("n", "<leader>fs", "<cmd>FzfLua grep_project<cr>", { desc = "Find string under cursor in cwd" })
+-- vim.keymap.set("n", "<leader>fx", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd Tele" })
+

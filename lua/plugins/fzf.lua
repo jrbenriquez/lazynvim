@@ -13,6 +13,14 @@ return {
               ["--tiebreak"] = "length", -- sorts by index/relevance for better scoring
             },
           },
+          symbols = {
+            symbol_icons = true,
+          },
+          lines = {
+            fzf_opts = {
+              ["--tiebreak"] = "length", -- sorts by index/relevance for better scoring
+            },
+          }
         },
       })
     end,
